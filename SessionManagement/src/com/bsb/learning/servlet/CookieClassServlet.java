@@ -1,7 +1,5 @@
 package com.bsb.learning.servlet;
 
-import org.omg.PortableInterceptor.INACTIVE;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;

@@ -13,8 +13,8 @@ import java.io.PrintWriter;
 public class PreferenceServlet extends HttpServlet{
     private static final long serialVersionUID = 888L;
     public static final String MENU = "<div class=\"\" style=\"background:#e8e8e8;\" padding:15px>\n" +
-            "      <a href=\"cookiesClass\">Cookies Class</a>&nbsp;&nbsp;\n" +
-            "      <a href=\"cookiesInfo\">Cookies Info</a>&nbsp;&nbsp;\n" +
+            "      <a href=\"cookieClass\">Cookies Class</a>&nbsp;&nbsp;\n" +
+            "      <a href=\"cookieInfo\">Cookies Info</a>&nbsp;&nbsp;\n" +
             "      <a href=\"preference\">Preference</a>\n" +
             "    </div>";
 
