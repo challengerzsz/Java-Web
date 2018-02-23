@@ -20,12 +20,14 @@ public class CookieClassServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("cookieClass page");
         Cookie[] cookies = req.getCookies();
         Cookie maxRecordsCookies = null;
 
-        if (maxRecordsCookies != null) {
+        if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("manRecords")) {
+                if (cookie.getName().equals("maxRecords")) {
+                    System.out.println("found maxRecordsCookies");
                     maxRecordsCookies = cookie;
                     break;
                 }
@@ -35,6 +37,7 @@ public class CookieClassServlet extends HttpServlet {
         int maxRecords = 5; //default
         if (maxRecordsCookies != null) {
             try {
+                System.out.println(maxRecordsCookies.getValue());
                 maxRecords = Integer.parseInt(maxRecordsCookies.getValue());
             } catch (NumberFormatException ex) {
                 //do nothing, use maxRecords default value

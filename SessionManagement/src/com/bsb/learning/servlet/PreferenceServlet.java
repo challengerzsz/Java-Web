@@ -83,6 +83,7 @@ public class PreferenceServlet extends HttpServlet{
         String titleFontSize = req.getParameter("titleFontSize");
 
         resp.addCookie(new Cookie("maxRecords", maxRecords));
+        System.out.println("add maxRecordsCookie successfully");
         resp.addCookie(new Cookie("titleFontSize", titleFontSize));
 
         //delete titleFontWeight and titleFontStyle cookies first
