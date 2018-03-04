@@ -1,4 +1,4 @@
-package com.bsb.servlet;
+package com.bsb.listener;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
