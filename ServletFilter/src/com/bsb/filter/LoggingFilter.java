@@ -24,7 +24,7 @@ public class LoggingFilter implements Filter {
         prefix = filterConfig.getInitParameter("prefix");
         String logFileName = filterConfig.getInitParameter("logFileName");
         String appPath = filterConfig.getServletContext().getRealPath("/");
-        //without path info in logFileName, the log file will be created in $TOMCAT_HOME/bin
+
         System.out.println("logFileName" + logFileName);
 
         try {
