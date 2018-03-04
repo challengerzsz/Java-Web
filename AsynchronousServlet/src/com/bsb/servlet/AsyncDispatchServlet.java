@@ -15,8 +15,10 @@ public class AsyncDispatchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final AsyncContext asyncContext = req.startAsync();
+
         req.setAttribute("mainThread", Thread.currentThread().getName());
         asyncContext.setTimeout(5000);
+
         asyncContext.start(() -> {
             //long-running task
             try {
