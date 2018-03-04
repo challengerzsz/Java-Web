@@ -11,8 +11,7 @@
     <title>Asynchronous servlet</title>
 </head>
 <body>
-    Main thread : ${mainThread}
-    <br>
-    Worker thread: ${workerThread}
+<h3>greeting : ${greeting}</h3>
+
 </body>
 </html>
