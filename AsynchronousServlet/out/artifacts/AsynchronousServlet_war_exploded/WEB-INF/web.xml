@@ -13,4 +13,30 @@
         <servlet-name>AsyncComplete</servlet-name>
         <url-pattern>/asyncComplete</url-pattern>
     </servlet-mapping>
+
+    <security-constraint>
+        <display-name>TN Auth</display-name>
+        <web-resource-collection>
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/prog</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>manager</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-role>
+        <role-name>manager</role-name>
+    </security-role>
+
+
+
+    <login-config>
+        <auth-method>DIGEST</auth-method>
+        <realm-name>DIGEST authentication</realm-name>
+    </login-config>
 </web-app>
