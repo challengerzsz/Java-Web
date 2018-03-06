@@ -2,9 +2,11 @@ package com.bsb.controller;
 
 import com.bsb.domain.Product;
 import com.bsb.form.ProductForm;
+import com.bsb.validator.ProductValidator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 public class SaveProductController implements Controller {
     @Override
@@ -16,19 +18,26 @@ public class SaveProductController implements Controller {
         productForm.setDesc(request.getParameter("desc"));
         productForm.setPrice(request.getParameter("price"));
 
-        //create model
-        Product product = new Product();
-        product.setName(productForm.getName());
-        product.setDesc(productForm.getDesc());
-        try {
-            System.out.println(productForm.getPrice());
+        //validate ProductForm
+        ProductValidator productValidator = new ProductValidator();
+        List<String> errors = productValidator.validate(productForm);
+        if (errors.isEmpty()) {
+            //create model
+            Product product = new Product();
+            product.setName(productForm.getName());
+            product.setDesc(productForm.getDesc());
             product.setPrice(Float.parseFloat(productForm.getPrice()));
-        } catch (NumberFormatException ex) {
-            ex.printStackTrace();
+            //save product
+            request.setAttribute("product", product);
+            System.out.println("errors isEmpty added");
+            return "/WEB-INF/jsp/ProductDetails.jsp";
+        } else {
+            //store errors and form in a scope variable for the view
+            request.setAttribute("errors", errors);
+            request.setAttribute("form", productForm);
+            System.out.println("had some errors added");
+            return "/WEB-INF/jsp/ProductForm.jsp";
         }
 
-        //save product
-        request.setAttribute("product", product);
-        return "/WEB-INF/jsp/ProductDetails.jsp";
     }
 }
