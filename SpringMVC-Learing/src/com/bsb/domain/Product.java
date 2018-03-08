@@ -6,6 +6,7 @@ public class Product implements Serializable {
 
     private static final long serialVersionUID = 748392348L;
 
+    private long id;
     private String name;
     private String desc;
     private float price;
@@ -32,5 +33,13 @@ public class Product implements Serializable {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
