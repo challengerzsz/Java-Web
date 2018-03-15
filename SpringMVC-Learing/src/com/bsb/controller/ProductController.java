@@ -42,6 +42,7 @@ public class ProductController {
         //add product
         Product savedProduct = productService.add(product);
 
+        //重定向会导致传递的model丢失 所以使用Flash属性传递id值进行访问商品的信息
         redirectAttributes.addFlashAttribute("message",
                 "The product was successfully added");
         return "redirect:/product_view/" + savedProduct.getId();

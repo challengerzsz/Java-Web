@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    private Map<Long,Product> products = new HashMap<>();
+    private Map<Long, Product> products = new HashMap<>();
     private AtomicLong generator = new AtomicLong();
 
     public ProductServiceImpl() {
