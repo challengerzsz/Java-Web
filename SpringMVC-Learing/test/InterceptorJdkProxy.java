@@ -56,8 +56,14 @@ public class InterceptorJdkProxy implements InvocationHandler {
 
 
     public static void main(String[] args) {
-        IHelloWorld proxy = (IHelloWorld) InterceptorJdkProxy.bind(new HelloWorldImpl(),
-                "MyInterceptor");
-        proxy.sayHelloWorld();
+        IHelloWorld proxy1 = (IHelloWorld) InterceptorJdkProxy.bind(new HelloWorldImpl(),
+                "Interceptor1");
+
+        IHelloWorld proxy2 = (IHelloWorld) InterceptorJdkProxy.bind(proxy1,
+                "Interceptor2");
+
+        IHelloWorld proxy3 = (IHelloWorld) InterceptorJdkProxy.bind(proxy2,
+                "Interceptor3");
+        proxy3.sayHelloWorld();
     }
 }
