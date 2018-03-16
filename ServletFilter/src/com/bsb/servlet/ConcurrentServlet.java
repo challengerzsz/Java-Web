@@ -17,14 +17,17 @@ public class ConcurrentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter printWriter = resp.getWriter();
-        name = req.getParameter("userName");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        synchronized (this) {
+            PrintWriter printWriter = resp.getWriter();
+            name = req.getParameter("userName");
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            printWriter.println(name);
         }
-        printWriter.println(name);
+
     }
 
     @Override
