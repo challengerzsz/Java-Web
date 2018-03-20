@@ -1,4 +1,4 @@
-import com.bsb.utils.DBCPUtil;
+import com.bsb.utils.DBUtil.DBCPUtil;
 import org.apache.commons.dbcp.BasicDataSource;
 
 import java.io.IOException;

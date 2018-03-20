@@ -1,14 +1,12 @@
-package com.bsb.service;
+package com.bsb.dao;
 
 import com.bsb.pojo.User;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IUserService {
-
-    User login(String username, String password) throws IOException, SQLException;
+public interface IUserDao {
+    User login(String username, String password) throws SQLException;
 
     User register(String username, String password, String confirmedPassword);
 

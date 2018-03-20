@@ -1,8 +1,7 @@
-package com.bsb.utils;
+package com.bsb.utils.DBUtil;
 
 import org.apache.commons.dbcp.BasicDataSource;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +10,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DBCPUtil {
-    private volatile static BasicDataSource basicDataSource = null;
+    private static BasicDataSource basicDataSource = null;
 
     private static String driver;
     private static String url;
@@ -32,7 +31,6 @@ public class DBCPUtil {
             e.printStackTrace();
         }
         driver = properties.getProperty("driverClassName");
-        System.out.println(driver);
         url = properties.getProperty("url");
         user = properties.getProperty("username");
         password = properties.getProperty("password");
