@@ -10,7 +10,7 @@ public interface IUserService {
 
     User login(String username, String password) throws IOException, SQLException;
 
-    User register(String username, String password, String confirmedPassword);
+    boolean register(String username, String password, String confirmPassword, String email) throws SQLException;
 
     boolean updateUser(int id);
 

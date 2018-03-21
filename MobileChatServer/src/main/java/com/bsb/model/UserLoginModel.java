@@ -6,10 +6,10 @@ import com.bsb.service.impls.UserService;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class UserModel {
+public class UserLoginModel {
     public UserService userService = new UserService();
 
-    public UserModel() throws IOException {
+    public UserLoginModel() throws IOException {
     }
 
     public User login(String username, String password) throws SQLException {

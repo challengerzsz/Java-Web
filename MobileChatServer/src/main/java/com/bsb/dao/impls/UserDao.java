@@ -49,8 +49,22 @@ public class UserDao implements IUserDao{
     }
 
     @Override
-    public User register(String username, String password, String confirmedPassword) {
-        return null;
+    public boolean register(String username, String password, String email) throws SQLException {
+        System.out.println("调用dao");
+        int registerResultCode = 0;
+        SQL = "INSERT INTO user_table VALUES (NULL, ?, ?, ?, ?)";
+        connection = basicDataSource.getConnection();
+        preparedStatement  = connection.prepareStatement(SQL);
+        preparedStatement.setString(1, username);
+        preparedStatement.setString(2, password);
+        preparedStatement.setString(3, email);
+        preparedStatement.setString(4, "jpg");
+
+        registerResultCode = preparedStatement.executeUpdate();
+        if (registerResultCode != 0) {
+            return true;
+        }
+        return false;
     }
 
     @Override

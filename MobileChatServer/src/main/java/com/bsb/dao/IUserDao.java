@@ -8,7 +8,7 @@ import java.util.List;
 public interface IUserDao {
     User login(String username, String password) throws SQLException;
 
-    User register(String username, String password, String confirmedPassword);
+    boolean register(String username, String password, String confirmedPassword) throws SQLException;
 
     boolean updateUser(int id);
 

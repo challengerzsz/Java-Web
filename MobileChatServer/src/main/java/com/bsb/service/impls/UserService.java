@@ -3,6 +3,7 @@ package com.bsb.service.impls;
 import com.bsb.dao.impls.UserDao;
 import com.bsb.pojo.User;
 import com.bsb.service.IUserService;
+import com.bsb.utils.MatchUtil.MatchRegexUtil;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -20,8 +21,13 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public User register(String username, String password, String confirmedPassword) {
-        return null;
+    public boolean register(String username, String password, String confirmedPassword, String email) throws SQLException {
+        System.out.println("调用service");
+        if (password.equals(confirmedPassword) && MatchRegexUtil.checkEmail(email)) {
+            return userDao.register(username, password, email);
+        }
+
+        return false;
     }
 
     @Override
