@@ -12,7 +12,7 @@ public class UserRegisterModel {
     }
 
     public boolean register(String username, String password, String confirmPassword, String email) throws SQLException {
-        System.out.println("调用model");
+
         return userService.register(username, password, confirmPassword, email);
     }
 }

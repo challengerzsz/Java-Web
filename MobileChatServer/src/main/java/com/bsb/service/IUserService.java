@@ -10,11 +10,12 @@ public interface IUserService {
 
     User login(String username, String password) throws IOException, SQLException;
 
-    boolean register(String username, String password, String confirmPassword, String email) throws SQLException;
+    boolean register(String username, String password, String confirmPassword,
+                     String email, String image) throws SQLException;
 
     boolean updateUser(int id);
 
-    User queryUser(int id);
+    User queryUser(String username);
 
     List<User> queryAllUsers();
 }

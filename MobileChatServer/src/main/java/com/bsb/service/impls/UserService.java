@@ -21,10 +21,11 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public boolean register(String username, String password, String confirmedPassword, String email) throws SQLException {
-        System.out.println("调用service");
+    public boolean register(String username, String password, String confirmedPassword, String email, String image)
+            throws SQLException {
+
         if (password.equals(confirmedPassword) && MatchRegexUtil.checkEmail(email)) {
-            return userDao.register(username, password, email);
+            return userDao.register(username, password, email, image);
         }
 
         return false;
@@ -36,7 +37,7 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public User queryUser(int id) {
+    public User queryUser(String username) {
         return null;
     }
 

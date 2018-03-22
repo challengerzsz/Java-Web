@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="MobileChatServer">
+    <output-path>$PROJECT_DIR$/out/artifacts/MobileChatServer</output-path>
+    <root id="archive" name="MobileChatServer.war">
+      <element id="artifact" artifact-name="MobileChatServer:war exploded" />
+    </root>
+  </artifact>
+</component>

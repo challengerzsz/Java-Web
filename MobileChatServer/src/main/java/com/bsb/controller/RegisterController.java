@@ -26,7 +26,6 @@ public class RegisterController extends HttpServlet {
         String confirmPassword = req.getParameter("confirmPassword");
         String email = req.getParameter("email");
 
-        System.out.println(username + " " + password + " " + confirmPassword + " " + email);
 
         UserRegisterModel userRegisterModel = new UserRegisterModel();
         try {

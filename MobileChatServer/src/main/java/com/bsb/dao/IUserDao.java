@@ -8,11 +8,11 @@ import java.util.List;
 public interface IUserDao {
     User login(String username, String password) throws SQLException;
 
-    boolean register(String username, String password, String confirmedPassword) throws SQLException;
+    boolean register(String username, String password, String confirmedPassword, String image) throws SQLException;
 
-    boolean updateUser(int id);
+    boolean updateUser(String username) throws SQLException;
 
-    User queryUser(int id);
+    User queryUser(String username) throws SQLException;
 
-    List<User> queryAllUsers();
+    List<User> queryAllUsers() throws SQLException;
 }

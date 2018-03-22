@@ -75,4 +75,10 @@ public class DBCPUtil {
         if (connection != null) connection.close();
 
     }
+
+    public static void closeResources(Connection connection, PreparedStatement preparedStatement) throws SQLException {
+        if (connection != null) connection.close();
+
+        if (preparedStatement != null) preparedStatement.close();
+    }
 }
