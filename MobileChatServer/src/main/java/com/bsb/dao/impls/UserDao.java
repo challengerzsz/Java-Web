@@ -16,9 +16,7 @@ import java.util.List;
 public class UserDao implements IUserDao{
 
     private BasicDataSource basicDataSource = DBCPUtil.getBasicDataSource();
-    private Connection connection = null;
-    private PreparedStatement preparedStatement = null;
-    private ResultSet resultSet = null;
+
     private String SQL =null;
 
     public UserDao() throws IOException {
@@ -32,8 +30,11 @@ public class UserDao implements IUserDao{
      * @throws SQLException
      */
     @Override
-    public User login(String username, String password) throws SQLException {
-
+    public List<User> login(String username, String password) throws SQLException {
+        Connection connection;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        List<User> friends = null;
         SQL = "SELECT id,username,email,user_image FROM user_table WHERE username = ? and password = ?";
         connection = basicDataSource.getConnection();
         preparedStatement = connection.prepareStatement(SQL);
@@ -44,14 +45,11 @@ public class UserDao implements IUserDao{
         resultSet = preparedStatement.executeQuery();
 
         if (resultSet.next()) {
-            User user = new User();
-            user.setId(resultSet.getInt(1));
-            user.setUsername(resultSet.getString(2));
-            user.setEmail(resultSet.getString(3));
+            friends = queryAllFriends(username);
         }
 
         DBCPUtil.closeResources(connection, preparedStatement, resultSet);
-        return null;
+        return friends;
     }
 
 
@@ -60,21 +58,22 @@ public class UserDao implements IUserDao{
      * @param username 用户名
      * @param password 密码
      * @param email 邮箱
-     * @param image 用户头像
      * @return true false
      * @throws SQLException
      */
     @Override
-    public boolean register(String username, String password, String email, String image) throws SQLException {
+    public boolean register(String username, String password, String email) throws SQLException {
+        Connection connection;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
 
-        SQL = "INSERT INTO user_table VALUES (NULL, ?, ?, ?, ?)";
+        SQL = "INSERT INTO user_table VALUES (NULL, ?, ?, ?)";
 
         connection = basicDataSource.getConnection();
         preparedStatement = connection.prepareStatement(SQL);
         preparedStatement.setString(1, username);
         preparedStatement.setString(2, password);
         preparedStatement.setString(3, email);
-        preparedStatement.setString(4, "jpg");
 
         if (preparedStatement.executeUpdate() != 0) {
             DBCPUtil.closeResources(connection, preparedStatement);
@@ -92,6 +91,9 @@ public class UserDao implements IUserDao{
 
     @Override
     public User queryUser(String username) throws SQLException {
+        Connection connection;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
 
         SQL = "SELECT email, user_image FROM user_table WHERE username = ?";
 
@@ -104,7 +106,7 @@ public class UserDao implements IUserDao{
             User user = new User();
             user.setUsername(username);
             user.setEmail(resultSet.getString("email"));
-            user.setImage(resultSet.getString("user_image"));
+            user.setImageUrl(resultSet.getString("user_image"));
             DBCPUtil.closeResources(connection, preparedStatement, resultSet);
             return user;
         }
@@ -114,24 +116,28 @@ public class UserDao implements IUserDao{
     }
 
     @Override
-    public List<User> queryAllUsers() throws SQLException {
-        SQL = "SELECT username FROM user_table";
+    public List<User> queryAllFriends(String username) throws SQLException {
+        Connection connection;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        User user = null;
+        SQL = "SELECT friendname FROM user_friend_table WHERE username = ?";
 
-        List<User> allaUsers = new ArrayList<>();
+        List<User> allFriends = new ArrayList<>();
 
         connection = basicDataSource.getConnection();
         preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1, username);
         resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
-            User user = new User();
-            user.setUsername(resultSet.getString("username"));
-            user.setEmail(resultSet.getString("email"));
-            user.setImage(resultSet.getString("user_image"));
-            allaUsers.add(user);
+            user = queryUser(resultSet.getString("friendname"));
+            if (user != null) {
+                allFriends.add(user);
+            }
         }
 
         DBCPUtil.closeResources(connection, preparedStatement, resultSet);
-        return allaUsers;
+        return allFriends;
     }
 }

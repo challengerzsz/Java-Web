@@ -12,7 +12,7 @@ public class UserLoginModel {
     public UserLoginModel() throws IOException {
     }
 
-    public String login(String username, String password) throws SQLException {
+    public boolean login(String username, String password) throws SQLException {
         return userService.login(username, password);
     }
 

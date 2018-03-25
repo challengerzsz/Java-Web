@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IUserService {
 
-    User login(String username, String password) throws IOException, SQLException;
+    boolean login(String username, String password) throws IOException, SQLException;
 
     boolean register(String username, String password, String confirmPassword,
                      String email, String image) throws SQLException;

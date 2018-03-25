@@ -72,7 +72,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="file://$MODULE_DIR$/../JSON_jar/json_jar" />
@@ -80,6 +80,19 @@
         <JAVADOC />
         <SOURCES />
         <jarDirectory url="file://$MODULE_DIR$/../JSON_jar/json_jar" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../alibaba JSON" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../alibaba JSON" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../alibaba JSON" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../alibaba JSON" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>

@@ -24,20 +24,16 @@ public class LoginController extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("username");
         String password = req.getParameter("password");
-        User user = null;
 
-        UserLoginModel userModel = new UserLoginModel();
+        UserLoginModel userLoginModel = new UserLoginModel();
         try {
-            user = userModel.login(userName, password);
+            if (userLoginModel.login(userName, password) == true) {
+                req.getRequestDispatcher("/WEB-INF/jsp/success.jsp").forward(req, resp);
+            } else {
+                req.getRequestDispatcher("/WEB-INF/jsp/failed.jsp").forward(req, resp);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-
-
-        if (user == null) {
-            req.getRequestDispatcher("/WEB-INF/jsp/failed.jsp").forward(req, resp);
-        } else {
-            req.getRequestDispatcher("/WEB-INF/jsp/success.jsp").forward(req, resp);
         }
 
     }

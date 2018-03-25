@@ -1,18 +1,21 @@
 package com.bsb.pojo;
 
-public class User {
-    private int id;
-    private String username;
-    private String password;
-    private String email;
-    private String image;
+import com.alibaba.fastjson.annotation.JSONField;
 
-    public String getImage() {
-        return image;
+public class User {
+    @JSONField(ordinal = 1)
+    private String username;
+    @JSONField(ordinal = 2)
+    private String email;
+    @JSONField(ordinal = 3)
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getEmail() {
@@ -23,14 +26,6 @@ public class User {
         this.email = email;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -39,11 +34,4 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

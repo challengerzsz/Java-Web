@@ -6,5 +6,4 @@ public class ImagesUtil {
     private static final String imageSavePath = "C:\\Users\\66490\\Desktop\\user_image\\";
 
 
-    
 }
