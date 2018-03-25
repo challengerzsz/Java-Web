@@ -23,58 +23,8 @@
       <file leaf-file-name="IUserDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/dao/IUserDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserLoginModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/model/UserLoginModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserRegisterModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/model/UserRegisterModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/dao/impls/UserDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="50" column="72" lean-forward="false" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1521993362729" expanded="true" signature="958:1045" ph="SELECT id FR... user_table" />
-                <marker date="1521993362729" expanded="true" signature="1911:1956" ph="INSERT INTO user_table... " />
-                <marker date="1521993362729" expanded="true" signature="2807:2866" ph="SELECT email... user_table" />
-                <marker date="1521993362729" expanded="true" signature="3779:3802" ph="SELECT usern... user_table" />
-                <marker date="1521993362729" expanded="true" signature="3779:3819" ph="SELECT usern... user_friend_table" />
-                <marker date="1521993362729" expanded="true" signature="3779:3838" ph="SELECT firen... user_friend_table" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IUserService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/service/IUserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+            <state relative-caret-position="360">
+              <caret line="18" column="41" lean-forward="false" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -83,8 +33,22 @@
       <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/service/impls/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+            <state relative-caret-position="146">
+              <caret line="88" column="12" lean-forward="false" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4017#4018#0" expanded="true" />
+                <element signature="e#4044#4045#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QueryUserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/controller/QueryUserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="404">
+              <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,37 +56,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="70" column="2" lean-forward="true" selection-start-line="70" selection-start-column="2" selection-end-line="70" selection-end-column="2" />
-              <folding>
-                <marker date="1521891450600" expanded="true" signature="596:620" ph="select * fro... user_table" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/pojo/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-              <folding>
-                <element signature="e#374#375#0" expanded="true" />
-                <element signature="e#414#415#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/controller/LoginController.java">
+      <file leaf-file-name="UserQueryModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/model/UserQueryModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="384">
-              <caret line="25" column="55" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
-              <folding />
+              <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDao.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/dao/impls/UserDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3164">
+              <caret line="161" column="8" lean-forward="false" selection-start-line="161" selection-start-column="8" selection-end-line="161" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4806#4807#0" expanded="true" />
+                <element signature="e#4834#4835#0" expanded="true" />
+                <marker date="1522000839007" expanded="true" signature="1025:1112" ph="SELECT id FR... user_table" />
+                <marker date="1522000839007" expanded="true" signature="1945:1993" ph="INSERT INTO user_table... " />
+                <marker date="1522000839007" expanded="true" signature="3089:3148" ph="SELECT email... user_table" />
+                <marker date="1522000839007" expanded="true" signature="4104:4127" ph="SELECT usern... user_table" />
+                <marker date="1522000839007" expanded="true" signature="4104:4144" ph="SELECT usern... user_friend_table" />
+                <marker date="1522000839007" expanded="true" signature="4104:4163" ph="SELECT firen... user_friend_table" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,8 +94,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -158,23 +119,25 @@
         <option value="$PROJECT_DIR$/src/main/java/com/bsb/utils/MatchUtil/MatchRegexUtil.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/register.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bsb/controller/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/resources/db.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/bsb/utils/DBUtil/DBCPUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bsb/utils/ImageUtil/ImagesUtil.java" />
         <option value="$PROJECT_DIR$/src/test/data/Person.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bsb/model/UserRegisterModel.java" />
         <option value="$PROJECT_DIR$/src/test/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bsb/controller/UploadImage.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/uploadImage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/bsb/controller/UploadImageServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bsb/dao/IUserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bsb/service/IUserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bsb/model/UserLoginModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bsb/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bsb/service/impls/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bsb/dao/impls/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bsb/pojo/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bsb/controller/RegisterController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bsb/model/UserRegisterModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bsb/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bsb/model/UserLoginModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bsb/service/impls/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bsb/service/IUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bsb/model/UserQueryModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bsb/controller/QueryUserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bsb/dao/IUserDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bsb/dao/impls/UserDao.java" />
       </list>
     </option>
   </component>
@@ -184,7 +147,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="width" value="1932" />
     <option name="height" value="1038" />
@@ -303,15 +266,6 @@
               <item name="bsb" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="impls" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MobileChatServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MobileChatServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bsb" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MobileChatServer" type="b2602c69:ProjectViewProjectNode" />
@@ -614,15 +568,15 @@
       <workItem from="1521889523379" duration="683000" />
       <workItem from="1521890547659" duration="168000" />
       <workItem from="1521890740514" duration="8150000" />
-      <workItem from="1521992032268" duration="1447000" />
+      <workItem from="1521992032268" duration="8359000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47553000" />
+    <option name="totallyTimeSpent" value="54465000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -701,22 +655,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/service/IUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/dao/IUserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/controller/RegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
@@ -775,12 +713,14 @@
           <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1521993362729" expanded="true" signature="958:1045" ph="SELECT id FR... user_table" />
-            <marker date="1521993362729" expanded="true" signature="1911:1956" ph="INSERT INTO user_table... " />
-            <marker date="1521993362729" expanded="true" signature="2807:2866" ph="SELECT email... user_table" />
-            <marker date="1521993362729" expanded="true" signature="3779:3802" ph="SELECT usern... user_table" />
-            <marker date="1521993362729" expanded="true" signature="3779:3819" ph="SELECT usern... user_friend_table" />
-            <marker date="1521993362729" expanded="true" signature="3779:3838" ph="SELECT firen... user_friend_table" />
+            <element signature="e#4806#4807#0" expanded="true" />
+            <element signature="e#4834#4835#0" expanded="true" />
+            <marker date="1522000839007" expanded="true" signature="1025:1112" ph="SELECT id FR... user_table" />
+            <marker date="1522000839007" expanded="true" signature="1945:1993" ph="INSERT INTO user_table... " />
+            <marker date="1522000839007" expanded="true" signature="3089:3148" ph="SELECT email... user_table" />
+            <marker date="1522000839007" expanded="true" signature="4104:4127" ph="SELECT usern... user_table" />
+            <marker date="1522000839007" expanded="true" signature="4104:4144" ph="SELECT usern... user_friend_table" />
+            <marker date="1522000839007" expanded="true" signature="4104:4163" ph="SELECT firen... user_friend_table" />
           </folding>
         </state>
       </provider>
@@ -820,6 +760,8 @@
           <caret line="17" column="77" lean-forward="false" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4017#4018#0" expanded="true" />
+            <element signature="e#4044#4045#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -830,12 +772,14 @@
           <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1521993362729" expanded="true" signature="958:1045" ph="SELECT id FR... user_table" />
-            <marker date="1521993362729" expanded="true" signature="1911:1956" ph="INSERT INTO user_table... " />
-            <marker date="1521993362729" expanded="true" signature="2807:2866" ph="SELECT email... user_table" />
-            <marker date="1521993362729" expanded="true" signature="3779:3802" ph="SELECT usern... user_table" />
-            <marker date="1521993362729" expanded="true" signature="3779:3819" ph="SELECT usern... user_friend_table" />
-            <marker date="1521993362729" expanded="true" signature="3779:3838" ph="SELECT firen... user_friend_table" />
+            <element signature="e#4806#4807#0" expanded="true" />
+            <element signature="e#4834#4835#0" expanded="true" />
+            <marker date="1522000839007" expanded="true" signature="1025:1112" ph="SELECT id FR... user_table" />
+            <marker date="1522000839007" expanded="true" signature="1945:1993" ph="INSERT INTO user_table... " />
+            <marker date="1522000839007" expanded="true" signature="3089:3148" ph="SELECT email... user_table" />
+            <marker date="1522000839007" expanded="true" signature="4104:4127" ph="SELECT usern... user_table" />
+            <marker date="1522000839007" expanded="true" signature="4104:4144" ph="SELECT usern... user_friend_table" />
+            <marker date="1522000839007" expanded="true" signature="4104:4163" ph="SELECT firen... user_friend_table" />
           </folding>
         </state>
       </provider>
@@ -887,6 +831,8 @@
           <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4017#4018#0" expanded="true" />
+            <element signature="e#4044#4045#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1011,65 +957,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/controller/RegisterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="29" column="70" lean-forward="false" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/uploadImage.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/controller/UploadImageServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/dao/IUserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/model/UserRegisterModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="25" column="55" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/model/UserLoginModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1081,18 +973,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/dao/impls/UserDao.java">
+    <entry file="file://$PROJECT_DIR$/src/test/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="50" column="72" lean-forward="false" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
+        <state relative-caret-position="398">
+          <caret line="70" column="2" lean-forward="true" selection-start-line="70" selection-start-column="2" selection-end-line="70" selection-end-column="2" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1521993362729" expanded="true" signature="958:1045" ph="SELECT id FR... user_table" />
-            <marker date="1521993362729" expanded="true" signature="1911:1956" ph="INSERT INTO user_table... " />
-            <marker date="1521993362729" expanded="true" signature="2807:2866" ph="SELECT email... user_table" />
-            <marker date="1521993362729" expanded="true" signature="3779:3802" ph="SELECT usern... user_table" />
-            <marker date="1521993362729" expanded="true" signature="3779:3819" ph="SELECT usern... user_friend_table" />
-            <marker date="1521993362729" expanded="true" signature="3779:3838" ph="SELECT firen... user_friend_table" />
+            <marker date="1521891450600" expanded="true" signature="596:620" ph="select * fro... user_table" />
           </folding>
         </state>
       </provider>
@@ -1108,20 +994,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/controller/UploadImageServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="70" column="2" lean-forward="true" selection-start-line="70" selection-start-column="2" selection-end-line="70" selection-end-column="2" />
-          <folding>
-            <marker date="1521891450600" expanded="true" signature="596:620" ph="select * fro... user_table" />
-          </folding>
+        <state relative-caret-position="168">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/service/impls/UserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/controller/RegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+        <state relative-caret-position="144">
+          <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/model/UserRegisterModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/model/UserLoginModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1130,9 +1038,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/service/IUserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        <state relative-caret-position="336">
+          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/service/impls/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="88" column="12" lean-forward="false" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4017#4018#0" expanded="true" />
+            <element signature="e#4044#4045#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/controller/QueryUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/model/UserQueryModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/dao/IUserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="41" lean-forward="false" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bsb/dao/impls/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3164">
+          <caret line="161" column="8" lean-forward="false" selection-start-line="161" selection-start-column="8" selection-end-line="161" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4806#4807#0" expanded="true" />
+            <element signature="e#4834#4835#0" expanded="true" />
+            <marker date="1522000839007" expanded="true" signature="1025:1112" ph="SELECT id FR... user_table" />
+            <marker date="1522000839007" expanded="true" signature="1945:1993" ph="INSERT INTO user_table... " />
+            <marker date="1522000839007" expanded="true" signature="3089:3148" ph="SELECT email... user_table" />
+            <marker date="1522000839007" expanded="true" signature="4104:4127" ph="SELECT usern... user_table" />
+            <marker date="1522000839007" expanded="true" signature="4104:4144" ph="SELECT usern... user_friend_table" />
+            <marker date="1522000839007" expanded="true" signature="4104:4163" ph="SELECT firen... user_friend_table" />
+          </folding>
         </state>
       </provider>
     </entry>

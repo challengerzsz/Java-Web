@@ -2,6 +2,8 @@ package com.bsb.model;
 
 import com.bsb.service.impls.UserService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -11,9 +13,10 @@ public class UserRegisterModel {
     public UserRegisterModel() throws IOException {
     }
 
-    public boolean register(String username, String password, String confirmPassword, String email) throws SQLException {
+    public void register(String username, String password, String confirmPassword, String email,
+                            HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 
-//        return userService.register(username, password, confirmPassword, email);
-        return true;
+        userService.register(username, password, confirmPassword, email, request, response);
+//        return true;
     }
 }

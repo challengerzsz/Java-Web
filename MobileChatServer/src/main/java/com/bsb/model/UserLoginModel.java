@@ -1,8 +1,10 @@
 package com.bsb.model;
 
-import com.bsb.pojo.User;
 import com.bsb.service.impls.UserService;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -12,8 +14,10 @@ public class UserLoginModel {
     public UserLoginModel() throws IOException {
     }
 
-    public boolean login(String username, String password) throws SQLException {
-        return userService.login(username, password);
+    public void login(String username, String password, HttpServletRequest request,
+                      HttpServletResponse response) throws SQLException, IOException, ServletException {
+        userService.login(username, password, request, response);
+
     }
 
 }

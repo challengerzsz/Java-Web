@@ -15,6 +15,8 @@ import java.util.List;
 
 public class UserDao implements IUserDao{
 
+    private static final String DEFAULT_IMAGE = "default.jpg";
+
     private BasicDataSource basicDataSource = DBCPUtil.getBasicDataSource();
 
     private String SQL =null;
@@ -31,11 +33,15 @@ public class UserDao implements IUserDao{
      */
     @Override
     public List<User> login(String username, String password) throws SQLException {
+
         Connection connection;
         PreparedStatement preparedStatement;
         ResultSet resultSet;
+
         List<User> friends = null;
+
         SQL = "SELECT id,username,email,user_image FROM user_table WHERE username = ? and password = ?";
+
         connection = basicDataSource.getConnection();
         preparedStatement = connection.prepareStatement(SQL);
 
@@ -62,24 +68,33 @@ public class UserDao implements IUserDao{
      * @throws SQLException
      */
     @Override
-    public boolean register(String username, String password, String email) throws SQLException {
-        Connection connection;
-        PreparedStatement preparedStatement;
-        ResultSet resultSet;
+    public boolean register(String username, String password, String email)  {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
 
-        SQL = "INSERT INTO user_table VALUES (NULL, ?, ?, ?)";
+        SQL = "INSERT INTO user_table VALUES (NULL, ?, ?, ?, ?)";
 
-        connection = basicDataSource.getConnection();
-        preparedStatement = connection.prepareStatement(SQL);
-        preparedStatement.setString(1, username);
-        preparedStatement.setString(2, password);
-        preparedStatement.setString(3, email);
+        try {
+            connection = basicDataSource.getConnection();
+            preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            preparedStatement.setString(3, email);
+            preparedStatement.setString(4, DEFAULT_IMAGE);
 
-        if (preparedStatement.executeUpdate() != 0) {
-            DBCPUtil.closeResources(connection, preparedStatement);
-            return true;
+            if (preparedStatement.executeUpdate() != 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            return false;
+        } finally {
+            try {
+                DBCPUtil.closeResources(connection, preparedStatement);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-        DBCPUtil.closeResources(connection, preparedStatement);
+
         return false;
     }
 
@@ -103,6 +118,7 @@ public class UserDao implements IUserDao{
 
         resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
+            System.out.println("has rec");
             User user = new User();
             user.setUsername(username);
             user.setEmail(resultSet.getString("email"));
@@ -139,5 +155,10 @@ public class UserDao implements IUserDao{
 
         DBCPUtil.closeResources(connection, preparedStatement, resultSet);
         return allFriends;
+    }
+
+    @Override
+    public boolean uploadImage(String username) {
+        return false;
     }
 }

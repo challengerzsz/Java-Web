@@ -15,4 +15,6 @@ public interface IUserDao {
     User queryUser(String username) throws SQLException;
 
     List<User> queryAllFriends(String user) throws SQLException;
+
+    boolean uploadImage(String username);
 }
