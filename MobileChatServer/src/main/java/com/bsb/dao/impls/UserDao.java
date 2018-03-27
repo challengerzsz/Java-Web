@@ -32,13 +32,12 @@ public class UserDao implements IUserDao{
      * @throws SQLException
      */
     @Override
-    public List<User> login(String username, String password) throws SQLException {
+    public boolean login(String username, String password) throws SQLException {
 
         Connection connection;
         PreparedStatement preparedStatement;
         ResultSet resultSet;
 
-        List<User> friends = null;
 
         SQL = "SELECT id,username,email,user_image FROM user_table WHERE username = ? and password = ?";
 
@@ -51,11 +50,11 @@ public class UserDao implements IUserDao{
         resultSet = preparedStatement.executeQuery();
 
         if (resultSet.next()) {
-            friends = queryAllFriends(username);
+            return true;
         }
 
         DBCPUtil.closeResources(connection, preparedStatement, resultSet);
-        return friends;
+        return false;
     }
 
 
@@ -63,12 +62,12 @@ public class UserDao implements IUserDao{
      * 用户注册
      * @param username 用户名
      * @param password 密码
-     * @param email 邮箱
+//     * @param email 邮箱
      * @return true false
      * @throws SQLException
      */
     @Override
-    public boolean register(String username, String password, String email)  {
+    public boolean register(String username, String password)  {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -79,7 +78,7 @@ public class UserDao implements IUserDao{
             preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
-            preparedStatement.setString(3, email);
+            preparedStatement.setString(3, username + "@qq.com");
             preparedStatement.setString(4, DEFAULT_IMAGE);
 
             if (preparedStatement.executeUpdate() != 0) {
@@ -102,6 +101,48 @@ public class UserDao implements IUserDao{
     public boolean updateUser(String username) throws SQLException {
         //todo 用户更新信息
         return true;
+    }
+
+    @Override
+    public boolean uploadImage(String username, String imageUrl) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        SQL = "UPDATE user_table SET user_image = ? WHERE username = ?";
+
+        connection = basicDataSource.getConnection();
+        preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1, imageUrl);
+        preparedStatement.setString(2, username);
+
+        if (preparedStatement.executeUpdate() != 0) {
+            DBCPUtil.closeResources(connection, preparedStatement);
+            return true;
+        }
+
+        DBCPUtil.closeResources(connection, preparedStatement);
+        return false;
+    }
+
+    @Override
+    public String queryUserImage(String username) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String url = null;
+
+        SQL = "SELECT user_image FROM user_table WHERE username = ?";
+        connection = basicDataSource.getConnection();
+        preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1, username);
+        resultSet = preparedStatement.executeQuery();
+
+        if (resultSet.next()) {
+            url = resultSet.getString("user_image");
+        }
+
+        DBCPUtil.closeResources(connection, preparedStatement, resultSet);
+        return url;
     }
 
     @Override
@@ -157,8 +198,4 @@ public class UserDao implements IUserDao{
         return allFriends;
     }
 
-    @Override
-    public boolean uploadImage(String username) {
-        return false;
-    }
 }

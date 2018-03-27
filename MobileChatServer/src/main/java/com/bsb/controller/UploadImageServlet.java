@@ -1,5 +1,8 @@
 package com.bsb.controller;
 
+import com.bsb.model.UserImageModel;
+import org.apache.commons.fileupload.FileUploadException;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,32 +12,36 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "UploadImage", urlPatterns = "/uploadImage")
 public class UploadImageServlet extends HttpServlet{
-    private static final String UPLOAD_DIR = "/image";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        System.out.println(this.getServletContext().getContextPath() + UPLOAD_DIR);
-        doPost(req, resp);
-//        req.getRequestDispatcher("/WEB-INF/jsp/uploadImage.jsp").forward(req, resp);
+//        doPost(req, resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/uploadImage.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("utf-8");
-        resp.setContentType("text/json;charset=utf-8");
 
+
+        String serverIp = req.getServerName() + ":" + req.getServerPort();
         ServletContext servletContext = this.getServletConfig().getServletContext();
+        String realPath = servletContext.getContextPath();
+        String xdPath = "/image/";
+        String newFilePath = serverIp + realPath + xdPath;
 
-        String fileName = "zsz.jpg";
-        String realPath = servletContext.getRealPath(UPLOAD_DIR) + "/";
-        String filePath = realPath + fileName;
-
-        System.out.println("完整路径" + filePath);
-
-
-//        FileOutputStream fileOutputStream = new FileOutputStream(new File(filePath));
+        UserImageModel userImageModel = new UserImageModel();
+        try {
+            userImageModel.uploadImage(req, resp, newFilePath);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (FileUploadException e) {
+            e.printStackTrace();
+        }
 
     }
 }

@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/MobileChatServer</output-path>
     <root id="archive" name="MobileChatServer.war">
       <element id="artifact" artifact-name="MobileChatServer:war exploded" />
+      <element id="dir-copy" path="$PROJECT_DIR$/web" />
     </root>
   </artifact>
 </component>

@@ -8,12 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title></title>
 </head>
 <body>
-    <form action="UploadTestServlet" enctype="multipart/form-data" id="loginform" name="loginform" method="post">
-        选择图片：<input type="file" name="filename"/>
-        <input id="subid" name="subid" type="submit" value="提交">
-    </form>
+
+<form class="test" enctype="multipart/form-data" action="uploadImage" method="post">
+    <input type="file" name="userImage">
+
+    <input type="submit" name="submit" value="uploadImage">
+</form>
 </body>
 </html>
+

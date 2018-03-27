@@ -2,12 +2,30 @@
   <artifact type="exploded-war" build-on-make="true" name="MobileChatServer:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/MobileChatServer_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="MobileChatServer/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="MobileChatServer" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/../JSON_jar/json_jar/ezmorph-1.0.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../JSON_jar/json_jar/commons-lang-2.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../JSON_jar/json_jar/json-lib-2.2.3-jdk15.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../JSON_jar/json_jar/commons-logging-1.1.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../JSON_jar/json_jar/commons-httpclient-3.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../JSON_jar/json_jar/commons-beanutils-1.7.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../JSON_jar/json_jar/commons-collections-3.2.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../mysql-connector-J/mysql-connector-java-5.1.45/mysql-connector-java-5.1.45-bin.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../dbcp_jar/commons-dbcp-1.2.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../dbcp_jar/commons-pool-1.5.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../alibaba JSON/fastjson-1.2.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../alibaba JSON/fastjson-1.2.2.zip" />
+          <element id="file-copy" path="$PROJECT_DIR$/../alibaba JSON/pconline1495545182393.zip" />
+          <element id="file-copy" path="$PROJECT_DIR$/../alibaba JSON/fastjson-1.2.2-sources.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../fileupload/commons-fileupload-1.3.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../fileupload/commons-io-2.5.jar" />
+        </element>
       </element>
+      <element id="javaee-facet-resources" facet="MobileChatServer/web/Web" />
     </root>
   </artifact>
 </component>

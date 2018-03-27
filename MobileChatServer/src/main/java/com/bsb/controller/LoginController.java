@@ -3,6 +3,7 @@ package com.bsb.controller;
 import com.bsb.model.UserLoginModel;
 import com.bsb.pojo.User;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +25,17 @@ public class LoginController extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("username");
         String password = req.getParameter("password");
+
+//        ServletContext servletContext = this.getServletConfig().getServletContext();
+//        String realPath = servletContext.getContextPath();
+//        String xdPath = "/image/";
+//        String newFilePath = realPath + xdPath;
+//        System.out.println(newFilePath);
+
+//        System.out.println(req.getContextPath() + "/image/zsz.jpg"  );
+
+
+
 
         UserLoginModel userLoginModel = new UserLoginModel();
 

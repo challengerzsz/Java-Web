@@ -1,5 +1,6 @@
 import com.alibaba.fastjson.JSON;
 import com.bsb.utils.DBUtil.DBCPUtil;
+import com.bsb.utils.ImageUtil.ImagesUtil;
 import com.bsb.utils.MatchUtil.MatchRegexUtil;
 import data.Person;
 import org.apache.commons.dbcp.BasicDataSource;
@@ -79,5 +80,6 @@ public class Test {
 //            System.out.println("Json串反序列化成数组: " + person);
 //
 //        }
+        ImagesUtil.test();
     }
 }
