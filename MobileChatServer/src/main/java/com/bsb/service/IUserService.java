@@ -4,6 +4,7 @@ import com.bsb.pojo.User;
 import org.apache.commons.fileupload.FileUploadException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
@@ -20,6 +21,10 @@ public interface IUserService {
                      HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException;
 
     void logout(HttpServletRequest request, HttpServletResponse response) throws IOException;
+
+    void queryDynamic(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException;
+
+    void updateDynamic(HttpServletRequest request, HttpServletResponse response, String newFilePath) throws FileUploadException, IOException, SQLException;
 
     boolean updateUser(String username);
 

@@ -18,4 +18,6 @@ public class UserQueryModel {
 
         userService.queryUser(username, request, response);
     }
+
+
 }

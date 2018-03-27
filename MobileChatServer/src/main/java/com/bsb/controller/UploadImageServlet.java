@@ -28,7 +28,7 @@ public class UploadImageServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
-        String serverIp = req.getServerName() + ":" + req.getServerPort();
+        String serverIp = "http://" + req.getServerName() + ":" + req.getServerPort();
         ServletContext servletContext = this.getServletConfig().getServletContext();
         String realPath = servletContext.getContextPath();
         String xdPath = "/image/";

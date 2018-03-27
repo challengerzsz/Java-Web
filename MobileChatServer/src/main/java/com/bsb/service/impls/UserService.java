@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.bsb.dao.impls.UserDao;
+import com.bsb.pojo.Dynamic;
 import com.bsb.pojo.User;
 import com.bsb.service.IUserService;
 import org.apache.commons.fileupload.FileItem;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +28,7 @@ public class UserService implements IUserService {
 
     private UserDao userDao = new UserDao();
     private JSONObject jsonObject = new JSONObject();
-    private JSONArray jsonArray = new JSONArray();
+//    private JSONArray jsonArray = new JSONArray();
 
 
 //    // 上传文件存储目录
@@ -58,7 +60,7 @@ public class UserService implements IUserService {
             session.setAttribute("username", username);
 
             jsonObject.put("status", "1");
-            jsonObject.put("message", "登陆成功!");
+            jsonObject.put("message", "登录成功!");
             if (userImageUrl != null) {
                 jsonObject.put("image_url", userImageUrl);
             } else {
@@ -70,7 +72,7 @@ public class UserService implements IUserService {
 //        request.getRequestDispatcher("/WEB-INF/jsp/failed.jsp").forward(request, response);
 
         jsonObject.put("status", "0");
-        jsonObject.put("message", "登陆失败!");
+        jsonObject.put("message", "登录失败!");
         printWriter.println(jsonObject);
         printWriter.close();
 //        return false;
@@ -121,6 +123,129 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public void queryDynamic(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+//        int queryStartIndex = startIndex - 1;
+//        int queryEndIndex = 0;
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute("username");
+
+        int queryStartIndex = Integer.parseInt(request.getParameter("index"));
+
+        response.setContentType("text/json");
+        response.setCharacterEncoding("utf-8");
+        PrintWriter printWriter = response.getWriter();
+
+        List<Dynamic> dynamics = userDao.queryDynamic(username, queryStartIndex, 10);
+
+        if (dynamics != null) {
+            int count = dynamics.size();
+            jsonObject.put("status", "1");
+            jsonObject.put("message", "获取动态成功!");
+            jsonObject.put("count", count);
+            jsonObject.put("dynamics", dynamics);
+            printWriter.println(jsonObject);
+            printWriter.close();
+        }
+
+        jsonObject.put("status", "0");
+        jsonObject.put("message", "获取动态失败!");
+        jsonObject.put("count", 0);
+        printWriter.println(jsonObject);
+        printWriter.close();
+    }
+
+    @Override
+    public void updateDynamic(HttpServletRequest request, HttpServletResponse response, String newFilePath) throws FileUploadException, IOException, SQLException {
+        response.setContentType("text/json");
+        response.setCharacterEncoding("utf-8");
+
+        HttpSession session = request.getSession();
+        PrintWriter printWriter = response.getWriter();
+
+        String username = (String) session.getAttribute("username");
+        String dynamic = null;
+
+        DiskFileItemFactory factory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        upload.setHeaderEncoding("UTF-8");
+        List item = upload.parseRequest(request);
+        Map param = new HashMap();
+        for (Object object : item) {
+            FileItem fileItem = (FileItem) object;
+
+            if (!fileItem.isFormField() && fileItem.getSize() != 0) {
+                System.out.println("选了文件");
+                param.put(fileItem.getFieldName(), fileItem.getInputStream());
+            } else if (!fileItem.isFormField() && fileItem.getSize() == 0) {
+                System.out.println("没选文件");
+                param.put(fileItem.getFieldName(), null);
+            } else {
+                param.put(fileItem.getFieldName(), fileItem.getString("UTF-8"));
+                System.out.println("文本框" + fileItem.getString("UTF-8"));
+            }
+        }
+
+
+
+        dynamic = (String) param.get("contentText");
+        System.out.println("待存数据" + dynamic);
+
+        double index = Math.random() * 1000;
+        //返回给用户的url
+        String finalNewFilePath = newFilePath + username + index + ".jpg";
+
+
+        //真正保存上传图片的路径
+        ServletContext context = request.getServletContext();
+        String saveFilePath = context.getRealPath("/");
+        String savePath = saveFilePath + "/image/" + username + index + ".jpg";
+        File finalFile = new File(savePath);
+
+        boolean result;
+
+        byte[] buffer = new byte[1024];
+        InputStream inputStream = (InputStream) param.get("contentImg");
+
+        if (inputStream != null) {
+            //输入输出流处理请求更新的图片
+            try (
+
+                    FileOutputStream fileOutputStream = new FileOutputStream(finalFile)
+            ) {
+                while (inputStream.read(buffer) != -1) {
+                    fileOutputStream.write(buffer);
+                }
+            } catch (IOException e) {
+                jsonObject.put("status", "0");
+                jsonObject.put("massage", "动态上传失败");
+                printWriter.println(jsonObject);
+                printWriter.close();
+            }
+
+        } else {
+            finalNewFilePath = "null";
+        }
+
+        System.out.println("动态图片的url: " + finalNewFilePath);
+
+        result = userDao.updateDynamic(username, dynamic, finalNewFilePath);
+
+        if (result) {
+            jsonObject.put("status", "1");
+            jsonObject.put("message", "动态发布成功!");
+            printWriter.println(jsonObject);
+            printWriter.close();
+        }
+
+
+        jsonObject.put("status", "0");
+        jsonObject.put("massage", "动态发布失败");
+        printWriter.println(jsonObject);
+        printWriter.close();
+    }
+
+    @Override
     public boolean updateUser(String username) {
         return false;
     }
@@ -130,7 +255,7 @@ public class UserService implements IUserService {
             throws SQLException, IOException {
 
         HttpSession session = request.getSession(true);
-        System.out.println("正在操作的是" + session.getAttribute("username"));
+//        System.out.println("正在操作的是" + session.getAttribute("username"));
 
         response.setContentType("text/json");
         response.setCharacterEncoding("utf-8");

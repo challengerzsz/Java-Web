@@ -34,16 +34,6 @@ public class RegisterController extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-//        try {
-//            if (userRegisterModel.register(username, password, confirmPassword, email, req, resp)) {
-//                req.getRequestDispatcher("/WEB-INF/jsp/success.jsp").forward(req, resp);
-//            } else {
-//                req.getRequestDispatcher("/WEB-INF/jsp/failed.jsp").forward(req, resp);
-//            }
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
 
     }
 }

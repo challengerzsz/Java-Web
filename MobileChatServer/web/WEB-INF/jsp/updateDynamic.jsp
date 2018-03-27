@@ -8,10 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>updateDynamic</title>
 </head>
 <body>
-    <
-    <form action="updateDynamic"></form>
+<form class="updateDynamic" enctype="multipart/form-data" action="updateDynamic" method="post">
+    <input type="text" name="contentText" >
+    <input type="file" name="contentImg" >
+    <input type="submit" name="submit">
+</form>
 </body>
 </html>

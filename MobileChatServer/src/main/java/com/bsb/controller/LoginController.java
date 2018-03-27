@@ -26,17 +26,6 @@ public class LoginController extends HttpServlet{
         String userName = req.getParameter("username");
         String password = req.getParameter("password");
 
-//        ServletContext servletContext = this.getServletConfig().getServletContext();
-//        String realPath = servletContext.getContextPath();
-//        String xdPath = "/image/";
-//        String newFilePath = realPath + xdPath;
-//        System.out.println(newFilePath);
-
-//        System.out.println(req.getContextPath() + "/image/zsz.jpg"  );
-
-
-
-
         UserLoginModel userLoginModel = new UserLoginModel();
 
         try {

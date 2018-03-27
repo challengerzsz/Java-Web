@@ -1,6 +1,7 @@
 package com.bsb.dao.impls;
 
 import com.bsb.dao.IUserDao;
+import com.bsb.pojo.Dynamic;
 import com.bsb.pojo.User;
 import com.bsb.utils.DBUtil.DBCPUtil;
 import org.apache.commons.dbcp.BasicDataSource;
@@ -15,7 +16,8 @@ import java.util.List;
 
 public class UserDao implements IUserDao{
 
-    private static final String DEFAULT_IMAGE = "default.jpg";
+    private static final String DEFAULT_IMAGE_URL = "http://120.79.196.225:8080/MobileChatServer/image/userdefault.jpg";
+    private static final String TMP_USER_IMAGE = "用户头像URL";
 
     private BasicDataSource basicDataSource = DBCPUtil.getBasicDataSource();
 
@@ -79,7 +81,7 @@ public class UserDao implements IUserDao{
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
             preparedStatement.setString(3, username + "@qq.com");
-            preparedStatement.setString(4, DEFAULT_IMAGE);
+            preparedStatement.setString(4, DEFAULT_IMAGE_URL);
 
             if (preparedStatement.executeUpdate() != 0) {
                 return true;
@@ -122,6 +124,61 @@ public class UserDao implements IUserDao{
 
         DBCPUtil.closeResources(connection, preparedStatement);
         return false;
+    }
+
+    @Override
+    public boolean updateDynamic(String username, String dynamic, String imageUrl) throws SQLException {
+
+        boolean result = false;
+
+        SQL = "INSERT INTO user_journal VALUES (NULL, ?, ?, ?, NULL)";
+
+        Connection connection = basicDataSource.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1, username);
+        preparedStatement.setString(2, dynamic);
+        preparedStatement.setString(3, imageUrl);
+
+
+        if (preparedStatement.executeUpdate() != 0) {
+            result = true;
+        }
+
+        DBCPUtil.closeResources(connection, preparedStatement);
+
+        return result;
+    }
+
+    @Override
+    public List<Dynamic> queryDynamic(String username, int startIndex, int endIndex) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        List<Dynamic> dynamics = new ArrayList<>();
+
+        SQL = "select friend.friendname, usr.user_image, journal.content, journal.image, journal.update_time from user_table usr, user_friend_table friend, user_journal journal\n" +
+                " where friend.username = ? and friend.friendname = journal.username and usr.username = friend.friendname order by journal.update_time desc limit ?, ?";
+        connection = basicDataSource.getConnection();
+        preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1, username);
+        preparedStatement.setInt(2, startIndex);
+        preparedStatement.setInt(3, endIndex);
+        resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()) {
+            Dynamic dynamic = new Dynamic();
+            dynamic.setUsername(resultSet.getString("friendname"));
+            dynamic.setUserImageUrl(resultSet.getString("user_image"));
+            dynamic.setContentText(resultSet.getString("content"));
+            dynamic.setContentImageUrl(resultSet.getString("image"));
+            dynamic.setUpdateDate(resultSet.getString("update_time"));
+
+            dynamics.add(dynamic);
+        }
+
+        DBCPUtil.closeResources(connection, preparedStatement, resultSet);
+        return dynamics;
     }
 
     @Override

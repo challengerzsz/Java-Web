@@ -1,9 +1,11 @@
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.bsb.utils.DBUtil.DBCPUtil;
 import com.bsb.utils.ImageUtil.ImagesUtil;
 import com.bsb.utils.MatchUtil.MatchRegexUtil;
 import data.Person;
 import org.apache.commons.dbcp.BasicDataSource;
+import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) throws IOException, SQLException {
@@ -80,6 +83,20 @@ public class Test {
 //            System.out.println("Json串反序列化成数组: " + person);
 //
 //        }
-        ImagesUtil.test();
+//        ImagesUtil.test();
+
+//        while (true) {
+//            int i = new Scanner(System.in).nextInt();
+//            System.out.println((i / 10 + 1 ) * 10);
+//        }
+
+//        List list = new ArrayList();
+//        list.add(1);
+//        list.add(2);
+//        list.add(3);
+//        JSONObject jsonObjec = new JSONObject();
+//        jsonObjec.put("list",list);
+//        System.out.println(jsonObjec);
     }
+
 }
