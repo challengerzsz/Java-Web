@@ -18,6 +18,10 @@ public interface IUserDao {
 
     boolean updateDynamic(String username, String dynamic, String imageUrl) throws SQLException;
 
+    boolean checkIsFriend(String username, String friendname) throws SQLException;
+
+    boolean addFriend(String username, String friendname) throws SQLException;
+
     List<Dynamic> queryDynamic(String username, int startIndex, int endIndex) throws SQLException;
 
     String queryUserImage(String username) throws SQLException;
@@ -25,6 +29,5 @@ public interface IUserDao {
     User queryUser(String username) throws SQLException;
 
     List<User> queryAllFriends(String user) throws SQLException;
-
 
 }

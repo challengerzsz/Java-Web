@@ -1,7 +1,6 @@
 package com.bsb.service.impls;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.bsb.dao.impls.UserDao;
 import com.bsb.pojo.Dynamic;
@@ -19,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,6 +70,7 @@ public class UserService implements IUserService {
 //        request.getRequestDispatcher("/WEB-INF/jsp/failed.jsp").forward(request, response);
 
         jsonObject.put("status", "0");
+        jsonObject.put("image_url", "null");
         jsonObject.put("message", "登录失败!");
         printWriter.println(jsonObject);
         printWriter.close();
@@ -87,11 +86,12 @@ public class UserService implements IUserService {
         response.setCharacterEncoding("utf-8");
 
         boolean result = userDao.register(username, password);
+        boolean addTalk = userDao.addFriend(username, "Talk官方团队");
 
         PrintWriter printWriter = response.getWriter();
 
 //        if (password.equals(confirmedPassword) && MatchRegexUtil.checkEmail(email)) {
-        if (result) {
+        if (result && addTalk) {
             jsonObject.put("status", "1");
             jsonObject.put("message", "用户注册成功!");
             printWriter.println(jsonObject);
@@ -251,6 +251,45 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public void addFriend(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
+        response.setContentType("text/json");
+        response.setCharacterEncoding("utf-8");
+
+        PrintWriter printWriter = response.getWriter();
+
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute("username");
+        String friendname = request.getParameter("name");
+
+        User friend = userDao.queryUser(friendname);
+        boolean isFriend = userDao.checkIsFriend(username, friendname);
+        boolean result = false;
+
+        //判断是否加好友
+        if (friend != null && !isFriend) {
+            result = userDao.addFriend(username, friendname);
+            if (result) {
+                jsonObject.put("status", "1");
+                jsonObject.put("message", "添加成功");
+                printWriter.println(jsonObject);
+                printWriter.close();
+            } else {
+                jsonObject.put("status", "0");
+                jsonObject.put("message", "添加失败，用户不存在或已成为好友");
+                printWriter.println(jsonObject);
+                printWriter.close();
+            }
+
+        }
+
+        jsonObject.put("status", "0");
+        jsonObject.put("message", "添加失败，用户不存在或已成为好友");
+        printWriter.println(jsonObject);
+        printWriter.close();
+
+    }
+
+    @Override
     public void queryUser(String username, HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
 
@@ -339,11 +378,13 @@ public class UserService implements IUserService {
 
         if (result) {
             jsonObject.put("status", "1");
+            jsonObject.put("url", finalNewFilePath);
             jsonObject.put("message", "上传图片成功");
             printWriter.println(jsonObject);
             printWriter.close();
         } else {
             jsonObject.put("status", "0");
+            jsonObject.put("url", "null");
             jsonObject.put("message", "上传图片失败!");
             printWriter.println(jsonObject);
             printWriter.close();

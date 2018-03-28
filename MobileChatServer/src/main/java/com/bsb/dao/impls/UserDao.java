@@ -17,7 +17,7 @@ import java.util.List;
 public class UserDao implements IUserDao{
 
     private static final String DEFAULT_IMAGE_URL = "http://120.79.196.225:8080/MobileChatServer/image/userdefault.jpg";
-    private static final String TMP_USER_IMAGE = "用户头像URL";
+//    private static final String TMP_USER_IMAGE = "用户头像URL";
 
     private BasicDataSource basicDataSource = DBCPUtil.getBasicDataSource();
 
@@ -86,6 +86,8 @@ public class UserDao implements IUserDao{
             if (preparedStatement.executeUpdate() != 0) {
                 return true;
             }
+
+
         } catch (SQLException e) {
             return false;
         } finally {
@@ -150,6 +152,52 @@ public class UserDao implements IUserDao{
     }
 
     @Override
+    public boolean checkIsFriend(String username, String friendname) throws SQLException {
+
+        SQL = "SELECT username, friendname FROM user_friend_table WHERE username = ?";
+
+        Connection connection = basicDataSource.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1, username);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        boolean result = false;
+
+        while (resultSet.next()) {
+            if (resultSet.getString("username").equals(username)
+                    && resultSet.getString("friendname").equals(friendname)) {
+                result = true;
+//                System.out.println("加过好友");
+                break;
+            }
+        }
+//        System.out.println("没加过");
+        DBCPUtil.closeResources(connection, preparedStatement, resultSet);
+        return result;
+    }
+
+    @Override
+    public boolean addFriend(String username, String friendname) throws SQLException {
+
+        SQL = "INSERT INTO user_friend_table VALUES (null, ?, ?)";
+
+        Connection connection = basicDataSource.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1, username);
+        preparedStatement.setString(2, friendname);
+
+        int resultCode = preparedStatement.executeUpdate();
+        boolean result = false;
+
+        if (resultCode != 0) {
+            result = true;
+        }
+
+        DBCPUtil.closeResources(connection, preparedStatement);
+        return result;
+    }
+
+    @Override
     public List<Dynamic> queryDynamic(String username, int startIndex, int endIndex) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -157,18 +205,20 @@ public class UserDao implements IUserDao{
 
         List<Dynamic> dynamics = new ArrayList<>();
 
-        SQL = "select friend.friendname, usr.user_image, journal.content, journal.image, journal.update_time from user_table usr, user_friend_table friend, user_journal journal\n" +
-                " where friend.username = ? and friend.friendname = journal.username and usr.username = friend.friendname order by journal.update_time desc limit ?, ?";
+        SQL = "select DISTINCT total.username, total.user_image, journal.content, journal.image, update_time  from (select usr.username, usr.user_image from user_table usr,\n" +
+                "(select friendname from user_friend_table where username = ?) friends where username = friends.friendname or usr.username = ?) total,\n" +
+                "user_journal journal where total.username = journal.username ORDER BY journal.update_time DESC limit ?, ?";
         connection = basicDataSource.getConnection();
         preparedStatement = connection.prepareStatement(SQL);
         preparedStatement.setString(1, username);
-        preparedStatement.setInt(2, startIndex);
-        preparedStatement.setInt(3, endIndex);
+        preparedStatement.setString(2, username);
+        preparedStatement.setInt(3, startIndex);
+        preparedStatement.setInt(4, endIndex);
         resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
             Dynamic dynamic = new Dynamic();
-            dynamic.setUsername(resultSet.getString("friendname"));
+            dynamic.setUsername(resultSet.getString("username"));
             dynamic.setUserImageUrl(resultSet.getString("user_image"));
             dynamic.setContentText(resultSet.getString("content"));
             dynamic.setContentImageUrl(resultSet.getString("image"));
@@ -216,7 +266,6 @@ public class UserDao implements IUserDao{
 
         resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            System.out.println("has rec");
             User user = new User();
             user.setUsername(username);
             user.setEmail(resultSet.getString("email"));

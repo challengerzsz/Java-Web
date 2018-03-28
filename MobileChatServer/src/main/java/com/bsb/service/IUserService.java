@@ -28,6 +28,8 @@ public interface IUserService {
 
     boolean updateUser(String username);
 
+    void addFriend(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException;
+
     void queryUser(String username, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException;
 
     List<User> queryAllUsers();

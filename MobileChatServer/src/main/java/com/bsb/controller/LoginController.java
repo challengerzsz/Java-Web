@@ -23,8 +23,11 @@ public class LoginController extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf8");
         String userName = req.getParameter("username");
         String password = req.getParameter("password");
+
+        System.out.println("servlet " + userName + " " + password);
 
         UserLoginModel userLoginModel = new UserLoginModel();
 
