@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -55,5 +52,11 @@ public class UserController {
     public ServerResponse<List<User>> listUsers() {
 
         return userService.listUsers();
+    }
+
+    @GetMapping("/find/{name}")
+    public ServerResponse<User> findByName(@PathVariable("name") String name) {
+
+        return userService.findByName(name);
     }
 }

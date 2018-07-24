@@ -10,6 +10,7 @@ import org.springframework.cache.annotation.EnableCaching;
  */
 @SpringBootApplication
 @MapperScan("com.bsb.mapper")
+@EnableCaching
 public class RedisCacheApplication {
 
     public static void main(String[] args) {

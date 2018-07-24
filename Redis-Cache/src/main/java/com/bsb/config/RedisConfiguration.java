@@ -23,7 +23,6 @@ import java.time.Duration;
  * @Date: 2018/7/24 9:27
  */
 @Configuration
-@EnableCaching
 public class RedisConfiguration {
 
 
@@ -65,6 +64,7 @@ public class RedisConfiguration {
         template.afterPropertiesSet();
         return template;
     }
+
 
 
 }

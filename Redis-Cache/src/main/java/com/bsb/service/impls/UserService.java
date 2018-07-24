@@ -1,6 +1,8 @@
 package com.bsb.service.impls;
 
 import com.bsb.common.ServerResponse;
+import com.bsb.event.EventPublisher;
+import com.bsb.event.LoginSuccessEvent;
 import com.bsb.jpa.IUserRepository;
 import com.bsb.mapper.IUserMapper;
 import com.bsb.pojo.User;
@@ -17,7 +19,6 @@ import java.util.List;
  * @Date: 2018/7/24 10:48
  */
 @Service
-@CacheConfig(cacheNames = "user")
 public class UserService implements IUserService {
 
     @Autowired
@@ -25,6 +26,9 @@ public class UserService implements IUserService {
 
     @Autowired
     private IUserRepository userRepository;
+
+    @Autowired
+    private EventPublisher eventPublisher;
 
     @Override
     public ServerResponse<String> insertUser(String username, String password) {
@@ -39,11 +43,12 @@ public class UserService implements IUserService {
             return ServerResponse.createByErrorMsg("新建用户失败");
         }
 
+        eventPublisher.publish("注册成功");
+
         return ServerResponse.createBySuccessMsg("创建用户成功");
     }
 
     @Override
-    @Cacheable
     public ServerResponse<List<User>> listUsers() {
 
         List<User> userList = userRepository.findAll();
@@ -52,5 +57,16 @@ public class UserService implements IUserService {
         }
 
         return ServerResponse.createBySuccess("查询成功", userList);
+    }
+
+    @Override
+    public ServerResponse<User> findByName(String username) {
+
+        User user = userMapper.find(username);
+        if (user == null) {
+            return ServerResponse.createByErrorMsg("查无此人");
+        }
+
+        return ServerResponse.createBySuccess("查询成功", user);
     }
 }

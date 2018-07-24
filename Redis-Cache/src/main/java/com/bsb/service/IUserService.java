@@ -15,4 +15,5 @@ public interface IUserService {
 
     ServerResponse<List<User>> listUsers();
 
+    ServerResponse<User> findByName(String username);
 }
